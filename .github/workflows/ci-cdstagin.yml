@@ -23,5 +23,7 @@ jobs :
           script: |
             echo "SSH connected"
             cd ./apps/MonoRepo-deployment
-            ls
+            git pull origin main 
+            pnpm install 
+            pnpm run build
 
