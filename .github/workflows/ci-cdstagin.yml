@@ -22,5 +22,6 @@ jobs :
           port: 22
           script: |
             echo "SSH connected"
-            whoami
+            cd ./apps/MonoRepo-deployment
+            ls
 
