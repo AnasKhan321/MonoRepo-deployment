@@ -1,0 +1,26 @@
+name : deployment to staging 
+
+on : 
+  push : 
+    branches : 
+      - "main"
+
+job : 
+  deployment : 
+    name : deploy to staging 
+    runs-on : ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: ssh to aws 
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 52.91.96.100
+          username: ubuntu
+          key: ${{ secrets.AWS_SSH_KEY }}
+          port: 22
+          script: |
+            echo "SSH connected"
+            whoami
+
